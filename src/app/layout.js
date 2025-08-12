@@ -19,7 +19,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="es">
+      <head>
+        <script
+          src="https://kit.fontawesome.com/3fbe9d9b03.js"
+          crossOrigin="anonymous"
+        ></script>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
