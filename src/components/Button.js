@@ -1,3 +1,6 @@
+import { SpinnerIcon } from "@phosphor-icons/react"; // importa los íconos que vayas a usar
+import React from "react";
+
 const Button = ({
   height = "h-12",
   width = "w-full",
@@ -9,16 +12,16 @@ const Button = ({
   loading = false,
   disabled = false,
   onClick = () => {},
-  icon,
+  icon: Icon,
 }) => {
   const textColor =
     backgroundColor === "bg-cream" || backgroundColor === "bg-white"
       ? "text-carbonGray"
       : "text-white";
 
-  const content = icon ? (
+  const content = Icon ? (
     <>
-      {children} <i className={icon} />
+      <Icon size={22} weight="regular" /> {children}
     </>
   ) : (
     <>{children}</>
@@ -38,7 +41,11 @@ const Button = ({
       }`}
       onClick={!loading && !disabled ? onClick : undefined}
     >
-      {loading ? <i className="fa-solid fa-spinner animate-spin" /> : content}
+      {loading ? (
+        <SpinnerIcon size={22} weight="bold" className="animate-spin" />
+      ) : (
+        content
+      )}
     </button>
   );
 };
