@@ -1,13 +1,97 @@
 "use client";
 
-import Nav from "@/components/Nav";
-import Hero from "@/components/Hero";
+import Button from "@/components/Button";
+import Input from "@/components/Input";
+import { PencilIcon, ArrowRightIcon } from "@phosphor-icons/react";
 
 export default function Home() {
   return (
-    <section className="w-full min-h-screen bg-mintGreen pt-40">
-      <Nav />
-      <Hero />
-    </section>
+    <div className="w-screen h-screen">
+      <div className="w-full h-full flex flex-col justify-center items-center">
+        <img src="/images/home.png" alt="hero" />
+        <div className="pt-6 flex flex-col gap-2 w-100 pb-8">
+          <Button onClick={() => console.log("Normal")}>Normal</Button>
+
+          <Button
+            icon={PencilIcon}
+            onClick={() => console.log("Normal con icono")}
+          >
+            Normal con ícono
+          </Button>
+
+          <Button loading onClick={() => console.log("Loading")}>
+            Loading
+          </Button>
+
+          <Button disabled onClick={() => console.log("Disabled")}>
+            Disabled
+          </Button>
+
+          <Button
+            backgroundColor="bg-white"
+            onClick={() => console.log("Fondo blanco")}
+          >
+            Fondo blanco
+          </Button>
+
+          <Button
+            icon={PencilIcon}
+            backgroundColor="bg-cream"
+            onClick={() => console.log("Fondo crema con icono")}
+          >
+            Fondo crema con ícono
+          </Button>
+
+          <Button
+            icon={ArrowRightIcon}
+            onClick={() => console.log("Solo ícono")}
+          />
+
+          <Button width="w-20" onClick={() => console.log("Otro tamaño")}>
+            Normal
+          </Button>
+
+          <Input
+            icon={PencilIcon}
+            placeholder="Escribe algo..."
+            type="password"
+          />
+          <Input
+            label="Nombre de usuario"
+            labelGray
+            icon={ArrowRightIcon}
+            placeholder="Escribe algo..."
+            height="h-14"
+          />
+          <Input
+            label="Contraseña"
+            icon={PencilIcon}
+            placeholder="Escribe algo..."
+            height="h-14"
+            type="password"
+          />
+          <Input
+            icon={PencilIcon}
+            placeholder="Escribe algo..."
+            height="h-14"
+            width="w-60"
+          />
+          <Input
+            icon={PencilIcon}
+            placeholder="Escribe algo..."
+            height="h-10"
+            type="password"
+            width="w-60"
+          />
+          <Input
+            label="Input deshabilitado"
+            placeholder="Escribe algo..."
+            height="h-6"
+            width="w-60"
+            disabled
+          />
+        </div>
+      </div>
+    </div>
   );
 }

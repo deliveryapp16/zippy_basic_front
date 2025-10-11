@@ -16,7 +16,7 @@ module.exports = {
         limeGreen: "#38C958",
         yellowGreen: "#AEE637",
         tomatoRed: "#C23B22",
-        mintGreen: "#E2FFF4",
+        mintGreen: "#DEF2EA",
         steelBlue: "#3A6EA5",
       },
       fontFamily: {
