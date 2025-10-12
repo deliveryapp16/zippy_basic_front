@@ -9,21 +9,35 @@ const Input = ({
   paddingX = "px-2",
   backgroundColor = "bg-white",
   fontWeight = "font-medium",
-  placeholder = "Input",
+  placeholder = "",
   type = "text",
   disabled = false,
   icon: Icon,
   label = "",
   labelGray,
+  square = false,
 }) => {
   const [showPassword, setShowPassword] = useState(false);
+  const [value, setValue] = useState("");
 
   const handleTogglePassword = () => {
     setShowPassword((prev) => !prev);
   };
 
+  const handleChange = (e) => {
+    let inputValue = e.target.value;
+
+    if (square) {
+      if (/^\d?$/.test(inputValue)) {
+        setValue(inputValue);
+      }
+    } else {
+      setValue(inputValue);
+    }
+  };
+
   return (
-    <>
+    <div className="flex flex-col gap-2">
       {label && (
         <label
           className={`text-sm font-semibold ${
@@ -34,9 +48,13 @@ const Input = ({
         </label>
       )}
       <section
-        className={`rounded-lg flex flex-row items-center relative focus:outline-none focus:ring-1 focus:ring-emeraldGreen ${
-          !disabled ? "border border-lightGray" : ""
-        } ${height} ${width} ${paddingX} ${backgroundColor} ${fontWeight}`}
+        className={`rounded-lg flex flex-row items-center relative
+        ${height} ${width} ${paddingX} ${fontWeight}
+        ${
+          disabled
+            ? "bg-transparent"
+            : `${backgroundColor} border border-lightGray focus-within:border-emeraldGreen`
+        }`}
       >
         {Icon && (
           <div className="h-full flex items-center absolute left-2 top-0 pointer-events-none">
@@ -49,15 +67,27 @@ const Input = ({
         )}
 
         <input
-          className={`w-full h-full focus:outline-none text-carbonGray disabled:bg-white ${
+          className={`w-full h-full focus:outline-none text-carbonGray disabled:bg-transparent ${
             Icon ? "pl-10" : ""
-          } ${type === "password" ? "pr-10" : ""}`}
-          type={type === "password" && !showPassword ? "password" : "text"}
+          } ${type === "password" ? "pr-10" : ""} ${
+            square ? "text-center text-3xl font-semibold" : ""
+          }`}
+          type={
+            square
+              ? "text"
+              : type === "password" && !showPassword
+              ? "password"
+              : "text"
+          }
           placeholder={placeholder}
           disabled={disabled}
+          value={value}
+          onChange={handleChange}
+          maxLength={square ? 1 : undefined}
+          inputMode={square ? "numeric" : undefined}
         />
 
-        {type === "password" && (
+        {type === "password" && !disabled && (
           <div
             onClick={handleTogglePassword}
             className="h-full cursor-pointer absolute right-2 top-0 flex items-center"
@@ -74,7 +104,7 @@ const Input = ({
           </div>
         )}
       </section>
-    </>
+    </div>
   );
 };
 
