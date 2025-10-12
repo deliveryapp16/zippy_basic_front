@@ -111,6 +111,48 @@ export default function Home() {
               <Button>Botón dentro del Wrapper</Button>
             </div>
           </Wrapper>
+
+          <img
+            src="/images/Banner_default.webp"
+            alt="banner"
+            className="w-60"
+          />
+          <img
+            src="/images/Companion_default.webp"
+            alt="companion"
+            className="w-60"
+          />
+          <img
+            src="/images/Complement_default.webp"
+            alt="complement"
+            className="w-60"
+          />
+          <img
+            src="/images/Deliveryman_default.webp"
+            alt="deliveryman"
+            className="w-60"
+          />
+          <img src="/images/Logo_default.webp" alt="logo" className="w-60" />
+          <img
+            src="/images/Product_default.webp"
+            alt="product"
+            className="w-60"
+          />
+          <img
+            src="/images/Deliveryman_empty.svg"
+            alt="deliveryman empty"
+            className="w-60"
+          />
+          <img
+            src="/images/Orders_empty.svg"
+            alt="orders empty"
+            className="w-60"
+          />
+          <img
+            src="/images/Products_empty.svg"
+            alt="products empty"
+            className="w-60"
+          />
         </div>
       </div>
     </div>
