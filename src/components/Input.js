@@ -9,31 +9,18 @@ const Input = ({
   paddingX = "px-2",
   backgroundColor = "bg-white",
   fontWeight = "font-medium",
-  placeholder = "",
   type = "text",
   disabled = false,
   icon: Icon,
   label = "",
   labelGray,
   square = false,
+  ...props
 }) => {
   const [showPassword, setShowPassword] = useState(false);
-  const [value, setValue] = useState("");
 
   const handleTogglePassword = () => {
     setShowPassword((prev) => !prev);
-  };
-
-  const handleChange = (e) => {
-    let inputValue = e.target.value;
-
-    if (square) {
-      if (/^\d?$/.test(inputValue)) {
-        setValue(inputValue);
-      }
-    } else {
-      setValue(inputValue);
-    }
   };
 
   return (
@@ -79,12 +66,10 @@ const Input = ({
               ? "password"
               : "text"
           }
-          placeholder={placeholder}
           disabled={disabled}
-          value={value}
-          onChange={handleChange}
           maxLength={square ? 1 : undefined}
           inputMode={square ? "numeric" : undefined}
+          {...props}
         />
 
         {type === "password" && !disabled && (

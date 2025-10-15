@@ -12,7 +12,7 @@ const Nav = () => {
     <nav className="w-full h-20 flex items-center bg-mintGreen fixed top-0 z-10 px-6 md:px-16">
       <div className="flex items-center gap-2 cursor-pointer w-1/2 md:w-1/3">
         <img
-          src="/images/Zippy-Logo-1.png"
+          src="/images/zippy_Logo_1.png"
           alt="Logo Zippy"
           className="w-10 object-cover"
         />

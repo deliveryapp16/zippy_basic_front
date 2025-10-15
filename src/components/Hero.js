@@ -1,5 +1,7 @@
 import Button from "@/components/Button";
+import { useRouter } from "next/navigation";
 const Hero = () => {
+  const router = useRouter();
   return (
     <section className="w-full h-auto flex justify-center pt-20">
       <div className="md:w-2/5 w-4/5 flex flex-col items-center gap-10">
@@ -11,7 +13,7 @@ const Hero = () => {
           Domina tus pedidos con agilidad y control total. <br />
           ¡Impulsa tu restaurante hoy!
         </p>
-        <Button width="w-60" onClick={() => console.log("Empezar ahora")}>
+        <Button width="w-60" onClick={() => router.push("/landing")}>
           ¡Empezar ahora!
         </Button>
       </div>

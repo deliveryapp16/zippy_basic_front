@@ -11,8 +11,8 @@ const Button = ({
   children,
   loading = false,
   disabled = false,
-  onClick = () => {},
   icon: Icon,
+  ...props
 }) => {
   const textColor =
     backgroundColor === "bg-cream" || backgroundColor === "bg-white"
@@ -30,7 +30,7 @@ const Button = ({
   return (
     <button
       disabled={disabled || loading}
-      className={`rounded-lg transition duration-200 flex flex-row items-center justify-center gap-2 ${height} ${width} ${backgroundColor} 
+      className={`rounded-lg transition duration-200 flex flex-row items-center justify-center gap-2 ${height} ${width} ${backgroundColor}
       ${paddingX} ${paddingY}
       ${fontWeight}
       ${textColor}
@@ -39,7 +39,8 @@ const Button = ({
           ? "cursor-not-allowed opacity-80"
           : "hover:brightness-90"
       }`}
-      onClick={!loading && !disabled ? onClick : undefined}
+      // onClick={!loading && !disabled ? onClick : undefined}
+      {...props}
     >
       {loading ? (
         <SpinnerIcon size={22} weight="bold" className="animate-spin" />
